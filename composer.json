@@ -10,7 +10,6 @@
             "email": "wubmaiL@mail.ru"
         }
     ],
-    "minimum-stability": "dev",
     "bin": [
         "bin/cold_hot.php"
     ],
