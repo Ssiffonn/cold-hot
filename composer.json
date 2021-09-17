@@ -3,6 +3,13 @@
     "require": {
         "wp-cli/php-cli-tools": "^0.11.13"
     },
+    "type": "project",
+    "authors": [
+        {
+            "name": "Ssiffonn",
+            "email": "wubmaiL@mail.ru"
+        }
+    ],
     "bin": [
         "bin/cold_hot.php"
     ],

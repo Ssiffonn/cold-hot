@@ -51,7 +51,7 @@
 
 1. Установить composer, если он не установлен;
 2. Перейти в каталог, в который вы будете клонировать проект;
-3. Выполнить команду `composer require ssiffonn/cold-hot`;
+3. Выполнить команду `composer create-project sifon/cold-hot`;
 4. Перейти в каталог vendor/bin;
 5. Запустить файл cold-hot.bat.
 
