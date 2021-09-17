@@ -2,6 +2,6 @@
     namespace ssiffonn\cold_hot\View;
 
     function showGame(){
-        echo "Cold-hot\n";
+        echo 'Игра "Горячо-Холодно" началась.'.PHP_EOL;
     }
 ?>
