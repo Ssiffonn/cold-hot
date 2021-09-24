@@ -1,4 +1,5 @@
 <?php
+
 $vendorGit = __DIR__ . '/../vendor/autoload.php';
 $autoPackagist = __DIR__ . '/../../../autoload.php';
 

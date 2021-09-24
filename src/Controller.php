@@ -1,4 +1,5 @@
 <?php
+
 namespace ssiffonn\cold_hot\Controller;
 
 use function ssiffonn\cold_hot\View\showGame;
@@ -23,7 +24,11 @@ function startGame()
                     for ($i = 0; $i < 3; $i++) {
                         if ($numberArray[$i] == $currentNumber[$i]) {
                             echo "Горячо!\n";
-                        } elseif ($numberArray[$i] == $currentNumber[0] || $numberArray[$i] == $currentNumber[1] || $numberArray[$i] == $currentNumber[2]) {
+                        } elseif (
+                            $numberArray[$i] == $currentNumber[0] ||
+                            $numberArray[$i] == $currentNumber[1] ||
+                            $numberArray[$i] == $currentNumber[2]
+                        ) {
                             echo "Тепло!\n";
                         } else {
                             echo "Холодно!\n";
