@@ -4,6 +4,23 @@ namespace ssiffonn\cold_hot\Controller;
 
 use function ssiffonn\cold_hot\View\showGame;
 
+function coldHot($numberArray, $currentNumber)
+{
+    for ($i = 0; $i < 3; $i++) {
+        if ($numberArray[$i] == $currentNumber[$i]) {
+            echo "Горячо!\n";
+        } elseif (
+            $numberArray[$i] == $currentNumber[0] ||
+            $numberArray[$i] == $currentNumber[1] ||
+            $numberArray[$i] == $currentNumber[2]
+        ) {
+            echo "Тепло!\n";
+        } else {
+            echo "Холодно!\n";
+        }
+    }
+}
+
 function startGame()
 {
     showGame();
@@ -21,19 +38,7 @@ function startGame()
                     echo "Вы выиграли!\n";
                     exit;
                 } else {
-                    for ($i = 0; $i < 3; $i++) {
-                        if ($numberArray[$i] == $currentNumber[$i]) {
-                            echo "Горячо!\n";
-                        } elseif (
-                            $numberArray[$i] == $currentNumber[0] ||
-                            $numberArray[$i] == $currentNumber[1] ||
-                            $numberArray[$i] == $currentNumber[2]
-                        ) {
-                            echo "Тепло!\n";
-                        } else {
-                            echo "Холодно!\n";
-                        }
-                    }
+                    coldHot($numberArray, $currentNumber);
                 }
             }
         } else {
