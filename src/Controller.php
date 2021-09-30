@@ -3,6 +3,26 @@
 namespace ssiffonn\cold_hot\Controller;
 
 use function ssiffonn\cold_hot\View\showGame;
+use function ssiffonn\cold_hot\View\showList;
+use function ssiffonn\cold_hot\View\showReplay;
+use function ssiffonn\cold_hot\View\help;
+
+function key()
+{
+    $key = readline("Введите ключ: ");
+    if ($key == "--new") {
+        startGame();
+    } elseif ($key == "--list") {
+        showList();
+    } elseif ($key == "--replay") {
+        showReplay();
+    } elseif ($key == "--help") {
+        help();
+    } else {
+        echo "Не верный ключ.\n";
+        key();
+    }
+}
 
 function coldHot($numberArray, $currentNumber)
 {
@@ -21,6 +41,16 @@ function coldHot($numberArray, $currentNumber)
     }
 }
 
+function restart()
+{
+    $restart = readline("Хотите сыграть ещё?[Y/N]\n");
+    if ($restart == "Y") {
+        startGame();
+    } else {
+        exit;
+    }
+}
+
 function startGame()
 {
     showGame();
@@ -36,7 +66,7 @@ function startGame()
                 $numberArray = str_split($number);
                 if ($numberArray == $currentNumber) {
                     echo "Вы выиграли!\n";
-                    exit;
+                    restart();
                 } else {
                     coldHot($numberArray, $currentNumber);
                 }

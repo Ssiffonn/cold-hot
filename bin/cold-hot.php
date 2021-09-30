@@ -9,5 +9,6 @@ if (file_exists($vendorGit)) {
     require_once($autoPackagist);
 }
 
-use function ssiffonn\cold_hot\Controller\startGame;
-startGame();
+use function ssiffonn\cold_hot\Controller\key;
+
+key();
