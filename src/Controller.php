@@ -5,7 +5,7 @@ namespace ssiffonn\cold_hot\Controller;
 use SQLite3;
 
 use function ssiffonn\cold_hot\View\showGame;
-use function ssiffonn\cold_hot\View\showList;
+// use function ssiffonn\cold_hot\View\showList;
 use function ssiffonn\cold_hot\View\showReplay;
 use function ssiffonn\cold_hot\View\help;
 
@@ -14,7 +14,7 @@ function key($key)
     if ($key == "--new" || $key == "-n") {
         startGame();
     } elseif ($key == "--list" || $key == "-l") {
-        listGames();
+        showList();
     } elseif ($key == "--replay" || $key == "-r") {
         showReplay();
     } elseif ($key == "--help" || $key == "-h") {
@@ -146,7 +146,7 @@ function updateDB($id, $result)
         WHERE gameId = '$id'");
 }
 
-function listGames()
+function showList()
 {
     $db = openDB();
     $query = $db->query('SELECT * FROM games');
