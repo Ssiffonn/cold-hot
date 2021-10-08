@@ -2,6 +2,8 @@
 
 namespace ssiffonn\cold_hot\Controller;
 
+use SQLite3;
+
 use function ssiffonn\cold_hot\View\showGame;
 use function ssiffonn\cold_hot\View\showList;
 use function ssiffonn\cold_hot\View\showReplay;
@@ -52,6 +54,20 @@ function restart()
 
 function startGame()
 {
+    if (!file_exists("gameDB.db")) {
+        $db = new SQLite3("gameDB.db");
+        $sql = "CREATE TABLE games(
+            gameId INTEGER PRIMARY KEY,
+            gameDate DATE,
+            playerName TEXT,
+            secretNumber INTEGER,
+            gameResult TEXT,
+            playerTry TEXT
+        )";
+    } else {
+        $db = new SQLite3("gameDB.db");
+    }
+
     showGame();
     $number = 0;
     $currentNumber = random_int(100, 999);
@@ -74,4 +90,37 @@ function startGame()
             echo "Ошибка! Введите число.\n";
         }
     }
+}
+
+function openDB()
+{
+    if (!file_exists("gameDB.db")) {
+        $db = createDB();
+    } else {
+        $db = new SQLite3("gameDB.db");
+    }
+    return $db;
+}
+
+function createDB()
+{
+    $db = new SQLite3("gameDB.db");
+
+    $game = "CREATE TABLE games(
+        gameId INTEGER PRIMARY KEY,
+        gameDate DATE,
+        gameTime TIME,
+        playerName TEXT,
+        secretNumber INTEGER,
+        gameResult TEXT
+    )";
+    $db->exec($game);
+
+    $turns = "CREATE TABLE turns(
+        id INTEGER,
+        gameResult INTEGER
+    )";
+    $db->exec($turns);
+
+    return $db;
 }
