@@ -4,7 +4,6 @@ namespace ssiffonn\cold_hot\Controller;
 
 use SQLite3;
 
-use function OlegParamonov\Coldhot\Controller\openDatabase;
 use function ssiffonn\cold_hot\View\showGame;
 use function ssiffonn\cold_hot\View\showList;
 use function ssiffonn\cold_hot\View\showReplay;
