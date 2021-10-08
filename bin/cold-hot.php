@@ -11,4 +11,10 @@ if (file_exists($vendorGit)) {
 
 use function ssiffonn\cold_hot\Controller\key;
 
-key();
+if (isset($argv[1])) {
+    $key = $argv[1];
+    key($key);
+} else {
+    $key = "-n";
+    key($key);
+}

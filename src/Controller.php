@@ -7,22 +7,21 @@ use function ssiffonn\cold_hot\View\showList;
 use function ssiffonn\cold_hot\View\showReplay;
 use function ssiffonn\cold_hot\View\help;
 
-function key()
+function key($key)
 {
-    $key = readline("Введите ключ: ");
-    if ($key == "--new") {
+    if ($key == "--new" || $key == "-n") {
         startGame();
-    } elseif ($key == "--list") {
+    } elseif ($key == "--list" || $key == "-l") {
         showList();
-    } elseif ($key == "--replay") {
+    } elseif ($key == "--replay" || $key == "-r") {
         showReplay();
-    } elseif ($key == "--help") {
+    } elseif ($key == "--help" || $key == "-h") {
         help();
     } else {
-        echo "Не верный ключ.\n";
-        key();
+        echo "Неверный ключ.";
     }
 }
+
 
 function coldHot($numberArray, $currentNumber)
 {
