@@ -12,9 +12,12 @@ if (file_exists($vendorGit)) {
 use function ssiffonn\cold_hot\Controller\key;
 
 if (isset($argv[1])) {
-    $key = $argv[1];
-    key($key, $argv[2]);
+    if ($argv[1] === "--replay" || $argv[1] === "-r") {
+        key($key, $argv[2]);
+    } else {
+        key($argv[1], null);
+    }
 } else {
     $key = "-n";
-    key($key, $argv[2]);
+    key($key, null);
 }
