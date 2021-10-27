@@ -12,13 +12,13 @@ use function ssiffonn\cold_hot\Model\updateDB;
 
 function key($key, $id)
 {
-    if ($key == "--new" || $key == "-n") {
+    if ($key === "--new" || $key === "-n") {
         startGame();
-    } elseif ($key == "--list" || $key == "-l") {
+    } elseif ($key === "--list" || $key === "-l") {
         showList();
-    } elseif ($key == "--replay" || $key == "-r") {
+    } elseif ($key === "--replay" || $key === "-r") {
         showReplay($id);
-    } elseif ($key == "--help" || $key == "-h") {
+    } elseif ($key === "--help" || $key === "-h") {
         help();
     } else {
         echo "Неверный ключ.";
@@ -30,13 +30,13 @@ function coldHot($numberArray, $currentNumber)
 {
     $result = "Исходы:";
     for ($i = 0; $i < 3; $i++) {
-        if ($numberArray[$i] == $currentNumber[$i]) {
+        if ($numberArray[$i] === $currentNumber[$i]) {
             $result .= " Горячо!;";
             echo "Горячо!\n";
         } elseif (
-            $numberArray[$i] == $currentNumber[0] ||
-            $numberArray[$i] == $currentNumber[1] ||
-            $numberArray[$i] == $currentNumber[2]
+            $numberArray[$i] === $currentNumber[0] ||
+            $numberArray[$i] === $currentNumber[1] ||
+            $numberArray[$i] === $currentNumber[2]
         ) {
             $result .= " Тепло!;";
             echo "Тепло!\n";
@@ -51,7 +51,7 @@ function coldHot($numberArray, $currentNumber)
 function restart()
 {
     $restart = readline("Хотите сыграть ещё?[Y/N]\n");
-    if ($restart == "Y") {
+    if ($restart === "Y") {
         startGame();
     } else {
         exit;
@@ -75,7 +75,7 @@ function startGame()
                 echo "Ошибка! Число должно быть трехзначным\n";
             } else {
                 $numberArray = str_split($number);
-                if ($numberArray == $currentNumber) {
+                if ($numberArray === $currentNumber) {
                     echo "Вы выиграли!\n";
                     $result = "Победа";
                     updateDB($id, $result);
